@@ -1,0 +1,96 @@
+installers 
+dnsutils == tools such as dig,nslookup
+bind9 bind9-utils == tool to set up authoritative nameserver on linux
+vlan == vlan configuration for linux
+
+commands:
+
+#fedora only! 
+man == man-k equivalant
+#general
+cawsay == displays with cow
+useradd == create user
+lsmod == list loaded kernal modules
+figlet == transferrs plain test into ASXII art
+tree == visualize directory in tree format
+ufw == firewall. syntax ex. ufw (enable/disable) <port>
+ps --aux == common command to list processes for all users, user friendly view, and
+[x showing background]
+ss (socket statistics) == list active connections on socker (common mod is -t == tcp socket,
+-l == listening sockets, -n numeric port number instead of service name, -p == process    
+using socket)
+crontab -e == creates scheduled task
+mkdir == makes directory. can create directory tree 
+nohup == run in background
+2>&1 redirects standard error (stderr) to same place as standard output
+& == sends entire command to background
+whereis == locate binary, source, and man page file
+which == finds executable of file
+head == show first lines of file
+tail == show last lines of file
+find == locates file [ex: find . -name "notes.txt"( . ==starts at current directory)]
+-exec == execute command listed (use {} as placeholder) mark end of -exec \;
+	[ex: -exec cat {} \;]
+sort == sorts lines alphabeticatlly in a text
+tr == modifies text (ex: tr 'a-z' 'A-Z' changes text from small to large)
+diff == highlight difference in files
+xarg == use output of one command for input for the next
+awk == (-f read script from first file and applies to second file) print specific fields from a structured text file
+time == show process comsumed and time for file to operate
+tcpdump == capturing network packets to or on a machine
+nload == monitor network traffic usage and bandwidth as graph
+iperf == monitor bandwith to or from a machine (requires server/client nodes)
+iftop == displays live two-column view of bandwidth usage
+#file structure
+/etc/bash.bashrc systemwide configuration file for bash 
+# ex: nohup ./data_processor.sh >processor.log 2>&1 &
+tar == create compressed file (c[create]z[compress with gzip]v[verbose]f[name file])
+> == puts output into desired location. overrides current line if file already exists 
+>> == puts output into desired location. appends line instead of overwriting it
+cp == copies files syntax ex: cp <file name> <new directory>/new file name>
+
+--
+create vlan
+sudo modprobe 8021q == make sure 8021q module is running
+sudo ip link add link #/physical interface/# name #/virtual ethernet desired ex:eth0.10/# type vlan id 10
+make sure to link set dev up
+## add ip address for vlan configured
+sudo ip addr add 192.168.20.10/24 dev eth0.10
+
+--
+runtimes
+create .sh file
+shebang line == tells which interpreter to use (ex: #!/bin/bash)
+
+--
+
+python3 starts phython interactive interpreter
+
+functions:
+bin() converts to binary
+exit() exits interpreter
+
+
+useful filepath:
+resolv.conf == dynamic resolution files for current host
+
+--
+file stucture
+/home where user directory is stored. Each user typically has their own directory here
+/etc contains system configuration files
+/bin holds essential command binaries (programs) that need to be available for all users
+
+--
+ls -l == read/write permissions and files in current directory
+	characters in order
+	1 == - for regular file d for directory
+	2-4 == owner permissions
+	5-7 == group permissions 
+	8-10 == permissions of owners
+	r == read
+	w == write
+	x == execute
+
+nc == netcat FTP (after quite scan cann use last two passive ports (num * 256 + num2 = port to connect[used for ftp only])
+	after use nc -v <target ip> <port determined earlier>
+nmap == network monitoring (-sS quiet scan, -sC -sV find service and version)
